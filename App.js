@@ -1,24 +1,37 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+//meu componentes
+import Header from './src/components/Header';
+import PeopleList from './src/components/PeopleList';
+
+// terceiros
+import axios from "axios";
 
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      peoples: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get('https://randomuser.me/api/?nat=br&results=5')
+      .then(response => {
+        const { results } = response.data;
+        this.setState({
+          peoples: results
+        });
+      })
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Será que vai. Não sei</Text>
-        <Text>Teste. Atualiza</Text>
-        <Text> Acredito que sim</Text>
-        <Text> Acredito que sim</Text>
+      <View>
+        <Header title="Pessoas" />
+        <PeopleList peoples={this.state.peoples}/>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
