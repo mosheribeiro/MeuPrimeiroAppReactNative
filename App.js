@@ -6,7 +6,8 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Será que vai. Não sei</Text>
-        <Text>Teste</Text>
+        <Text>Teste. Atualiza</Text>
+        <Text> Acredito que sim</Text>
         <Text> Acredito que sim</Text>
       </View>
     );
