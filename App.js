@@ -22,6 +22,9 @@ export default class App extends React.Component {
         const { results } = response.data;
         this.setState({
           peoples: results
+        })
+        .catch(error => {
+            Console.log(error);
         });
       })
   }
