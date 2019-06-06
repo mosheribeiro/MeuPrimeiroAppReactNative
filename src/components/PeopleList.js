@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import PeopleListItem from './src/components/PeopleListItem';
+import PeopleListItem from './PeopleListItem';
 
 const PeopleList = props => {
     const { peoples } = props;
 
     const itens = peoples.map(people =>{
-        return <PeopleListItem people={people}/>
+        return <PeopleListItem key={people.name.first} people={people}/>
     })
 
     return (
