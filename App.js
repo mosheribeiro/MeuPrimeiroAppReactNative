@@ -4,24 +4,22 @@ import PeopleDetailPage from './src/pages/PeopleDetailPage';
 import { capitalizeFirstLetter } from './src/util';
 
 const AppNavigator = createStackNavigator({
-
+  'Main': {
+    screen: PeoplePage
+  },
   'PeopleDetail': {
     screen: PeopleDetailPage,
     navigationOptions: ({navigation}) => {
-      const peopleName = 'TODO';
-      // capitalizeFirstLetter(navigation.state.params.people.name.first);
+      const peopleName = capitalizeFirstLetter(navigation.state.params.people.name.first);
       return ({
         title: peopleName,
         headerTitleStyle: {
           color: 'white',
-          fontSize: 30,
+         fontSize: 30,
         }
       });
     }
   },
-  'Main': {
-    screen: PeoplePage
-  }
 },
   {
     defaultNavigationOptions: {
